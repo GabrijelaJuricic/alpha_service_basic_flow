@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="main-container">
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />

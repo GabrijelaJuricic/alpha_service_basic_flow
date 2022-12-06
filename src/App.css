@@ -1,3 +1,5 @@
-.App {
-  text-align: center;
+.main-container {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 6rem 8rem;
 }
