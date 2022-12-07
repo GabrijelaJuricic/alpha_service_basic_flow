@@ -1,0 +1,49 @@
+.my-orders-container {
+  display: flex;
+  min-height: 100%;
+}
+.alpha-header {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+.create-new-order-btn {
+}
+.my-orders-left {
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+}
+.my-orders-title {
+  display: flex;
+  flex-direction: column;
+}
+.my-orders-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.my-orders-right {
+  display: flex;
+  width: 32%;
+  background: linear-gradient(40deg, #b2b0b0 0%, #e7e4e4 76.53%);
+  border-radius: 5px;
+}
+.my-orders-motorcycle_2 {
+  position: relative;
+  width: 440px;
+  height: 540px;
+  top: 80px;
+  left: 55px;
+}
+.my-orders-alpha {
+  position: relative;
+  width: 130px;
+  height: 45px;
+  right: 360px;
+  top: 40px;
+}
