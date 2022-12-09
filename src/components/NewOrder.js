@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import service_pricing_list from "../service_pricing_list.csv";
 import Papa from "papaparse";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
   csvContentState,
   uniqueBrandsState,
   selectedBrandState,
   availableModelsState,
   selectedModelState,
+  lastSupportedYearState,
+  enteredYearState,
+  enteredMileageState,
+  milleageErrorState,
+  yearErrorState,
 } from "../atoms";
 // import { useNavigate } from "react-router-dom";
 import {
@@ -26,6 +31,14 @@ const NewOrder = () => {
     useRecoilState(availableModelsState);
   const [selectedBrand, setSelectedBrand] = useRecoilState(selectedBrandState);
   const [selectedModel, setSelectedModel] = useRecoilState(selectedModelState);
+  const [lastSupportedYear, setLastSupportedYear] = useRecoilState(
+    lastSupportedYearState
+  );
+  const [enteredYear, setEnteredYear] = useRecoilState(enteredYearState);
+  const [enteredMileage, setEnteredMileage] =
+    useRecoilState(enteredMileageState);
+  const yearError = useRecoilValue(yearErrorState);
+  const mileageError = useRecoilValue(milleageErrorState);
 
   // const navigate = useNavigate();
 
@@ -65,6 +78,18 @@ const NewOrder = () => {
       setSelectedModel(result[0]);
     }
   }, [selectedBrand]);
+
+  useEffect(() => {
+    if (selectedModel) {
+      csvContent.slice(1).map((row) => {
+        if (row[0] === selectedBrand && row[1] === selectedModel) {
+          setLastSupportedYear(row[2]);
+          // todo
+          // setati state servicePricesForSelectedModel(3,4,5,6)
+        }
+      });
+    }
+  }, [selectedModel]);
 
   // --- Helper function --- //
   const handleBrandChange = (event) => {
@@ -124,8 +149,28 @@ const NewOrder = () => {
               ))}
             </Select>
           </FormControl>
-          <TextField id="model-year" label="Model year"></TextField>
-          <TextField id="milleage" label="Milleage"></TextField>
+          <TextField
+            id="model-year"
+            label="Model year"
+            value={enteredYear}
+            onChange={(event) => {
+              setEnteredYear(event.target.value);
+            }}
+            error={enteredYear !== lastSupportedYear && enteredYear !== ""}
+            helperText={
+              enteredYear !== lastSupportedYear && enteredYear !== ""
+                ? yearError
+                : " "
+            }
+          ></TextField>
+          <TextField
+            id="mileage"
+            label="Mileage"
+            value={enteredMileage}
+            onChange={(event) => setEnteredMileage(event.target.value)}
+            error={enteredMileage < 0}
+            helperText={enteredMileage < 0 ? mileageError : " "}
+          ></TextField>
         </div>
       </div>
     </div>
