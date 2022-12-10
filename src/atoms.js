@@ -32,16 +32,8 @@ export const enteredYearState = atom({
   key: "enteredYearState",
   default: "",
 });
-export const yearErrorState = atom({
-  key: "yearErrorState",
-  default: "Invalid model year",
-});
 // --- Mileage --- //
 export const enteredMileageState = atom({
   key: "enteredMileageState",
   default: "",
-});
-export const milleageErrorState = atom({
-  key: "milleageErrorState",
-  default: "Mileage can't be negative number",
 });

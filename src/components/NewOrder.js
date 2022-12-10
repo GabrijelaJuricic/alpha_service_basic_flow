@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import service_pricing_list from "../service_pricing_list.csv";
 import Papa from "papaparse";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   csvContentState,
   uniqueBrandsState,
@@ -11,8 +11,6 @@ import {
   lastSupportedYearState,
   enteredYearState,
   enteredMileageState,
-  milleageErrorState,
-  yearErrorState,
 } from "../atoms";
 // import { useNavigate } from "react-router-dom";
 import {
@@ -37,8 +35,6 @@ const NewOrder = () => {
   const [enteredYear, setEnteredYear] = useRecoilState(enteredYearState);
   const [enteredMileage, setEnteredMileage] =
     useRecoilState(enteredMileageState);
-  const yearError = useRecoilValue(yearErrorState);
-  const mileageError = useRecoilValue(milleageErrorState);
 
   // const navigate = useNavigate();
 
@@ -156,10 +152,10 @@ const NewOrder = () => {
             onChange={(event) => {
               setEnteredYear(event.target.value);
             }}
-            error={enteredYear !== lastSupportedYear && enteredYear !== ""}
+            error={enteredYear > lastSupportedYear}
             helperText={
-              enteredYear !== lastSupportedYear && enteredYear !== ""
-                ? yearError
+              enteredYear > lastSupportedYear
+                ? `Last supported year for selected model is ${lastSupportedYear}`
                 : " "
             }
           ></TextField>
@@ -169,7 +165,7 @@ const NewOrder = () => {
             value={enteredMileage}
             onChange={(event) => setEnteredMileage(event.target.value)}
             error={enteredMileage < 0}
-            helperText={enteredMileage < 0 ? mileageError : " "}
+            helperText={enteredMileage < 0 ? `Invalid input` : " "}
           ></TextField>
         </div>
       </div>
