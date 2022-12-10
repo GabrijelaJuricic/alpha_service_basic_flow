@@ -1,0 +1,20 @@
+.new-order-container {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100%;
+}
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.middle {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.right-side {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}

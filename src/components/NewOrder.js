@@ -21,6 +21,7 @@ import {
   Select,
 } from "@mui/material";
 import alphaLogo from "../assets/alphaLogo.png";
+import "./NewOrder.css";
 
 const NewOrder = () => {
   const [csvContent, setCsvContent] = useRecoilState(csvContentState);
@@ -102,73 +103,74 @@ const NewOrder = () => {
   };
 
   return (
-    <div>
-      <div className="new-order-container">
-        <div className="left-side">
-          <div className="alpha-logo">
-            <img src={alphaLogo} />
-            <h1>alpha</h1>
-          </div>
-          <h2>New Order</h2>
-          <FormControl>
-            <InputLabel id="select-brand">Brand</InputLabel>
-            <Select
-              labelId="select-brand-label"
-              id="brand"
-              label="Brand"
-              value={selectedBrand}
-              onChange={handleBrandChange}
-            >
-              {uniqueBrands.map((brand) => {
-                // redo key
-                return (
-                  <MenuItem value={brand} key={brand}>
-                    {brand}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
-          <FormControl>
-            <InputLabel id="select-model">Model</InputLabel>
-            <Select
-              labelId="select-model-label"
-              id="model"
-              value={selectedModel}
-              label="Model"
-              onChange={handleModelChange}
-            >
-              {availableModels.map((model) => (
-                <MenuItem value={model} key={model}>
-                  {model}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <TextField
-            id="model-year"
-            label="Model year"
-            value={enteredYear}
-            onChange={(event) => {
-              setEnteredYear(event.target.value);
-            }}
-            error={enteredYear > lastSupportedYear}
-            helperText={
-              enteredYear > lastSupportedYear
-                ? `Last supported year for selected model is ${lastSupportedYear}`
-                : " "
-            }
-          ></TextField>
-          <TextField
-            id="mileage"
-            label="Mileage"
-            value={enteredMileage}
-            onChange={(event) => setEnteredMileage(event.target.value)}
-            error={enteredMileage < 0}
-            helperText={enteredMileage < 0 ? `Invalid input` : " "}
-          ></TextField>
+    <div className="new-order-container">
+      <div className="left-side">
+        <div className="alpha-logo">
+          <img src={alphaLogo} />
+          <h1>alpha</h1>
         </div>
+        <h2>New Order</h2>
+        <FormControl>
+          <InputLabel id="select-brand">Brand</InputLabel>
+          <Select
+            labelId="select-brand-label"
+            id="brand"
+            label="Brand"
+            value={selectedBrand}
+            onChange={handleBrandChange}
+          >
+            {uniqueBrands.map((brand) => {
+              // redo key
+              return (
+                <MenuItem value={brand} key={brand}>
+                  {brand}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+        <FormControl sx={{ mt: 3 }}>
+          <InputLabel id="select-model">Model</InputLabel>
+          <Select
+            labelId="select-model-label"
+            id="model"
+            value={selectedModel}
+            label="Model"
+            onChange={handleModelChange}
+          >
+            {availableModels.map((model) => (
+              <MenuItem value={model} key={model}>
+                {model}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <TextField
+          sx={{ mt: 3 }}
+          id="model-year"
+          label="Model year"
+          value={enteredYear}
+          onChange={(event) => {
+            setEnteredYear(event.target.value);
+          }}
+          error={enteredYear > lastSupportedYear}
+          helperText={
+            enteredYear > lastSupportedYear
+              ? `The last supported year for selected model is ${lastSupportedYear}`
+              : " "
+          }
+        ></TextField>
+        <TextField
+          id="mileage"
+          label="Mileage"
+          value={enteredMileage}
+          onChange={(event) => setEnteredMileage(event.target.value)}
+          error={enteredMileage < 0}
+          helperText={enteredMileage < 0 ? `Invalid input` : " "}
+        ></TextField>
       </div>
+      <div className="middle"></div>
+      <div className="right-side"></div>
     </div>
   );
 };
