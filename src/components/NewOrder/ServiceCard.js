@@ -1,32 +1,68 @@
 import React from "react";
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
+} from "@mui/material";
 import "./ServiceCard.css";
+import { useRecoilState } from "recoil";
+import { selectedServicesState } from "../../atoms";
+
+// Dummy data //
+const typeOfService = [
+  { service: "Chain change", price: 100, id: 0 },
+  { service: "Oil and oil filter change", price: 100, id: 1 },
+  { service: "Air filter change", price: 100, id: 2 },
+  { service: "Brake fluid change", price: 100, id: 3 },
+];
 
 const ServiceCard = () => {
-  const typeOfService = [
-    { service: "Chain change", price: 100, id: 0 },
-    { service: "Oil and oil filter change", price: 100, id: 1 },
-    { service: "Air filter change", price: 100, id: 2 },
-    { service: "Brake fluid change", price: 100, id: 3 },
-  ];
+  const [selectedServices, setSelectedServices] = useRecoilState(
+    selectedServicesState
+  );
+
+  // Helper functions //
+  const handleServicesChange = (event) => {
+    const index = selectedServices.indexOf(event.target.value);
+    if (index === -1) {
+      setSelectedServices([...selectedServices, event.target.value]);
+    } else {
+      setSelectedServices(
+        selectedServices.filter((service) => service !== event.target.value)
+      );
+    }
+  };
 
   return (
     <div className="service-card-container">
       <div>Calendar</div>
       <div className="type-of-service">
-        <label>Type of service</label>
-        {typeOfService.map(({ service, price, id }) => {
-          return (
-            <label key={id}>
-              <div className="service-price-container">
-                <input type="checkbox" className="checkbox" />
-                <div className="service-price">
-                  <div>{service}</div>
-                  <div>{`${price} $`}</div>
+        <FormControl>
+          <FormLabel component="legend">Type of service</FormLabel>
+          {typeOfService.map(({ service, price, id }) => {
+            return (
+              <FormGroup key={id}>
+                <div className="service-price-container">
+                  <div className="service-price">
+                    <FormControlLabel
+                      label={service}
+                      control={
+                        <Checkbox
+                          value={service}
+                          checked={selectedServices.includes(service)}
+                          onChange={handleServicesChange}
+                        />
+                      }
+                    />
+                    <div>{`${price} $`}</div>
+                  </div>
                 </div>
-              </div>
-            </label>
-          );
-        })}
+              </FormGroup>
+            );
+          })}
+        </FormControl>
       </div>
       <div className="discount-options">
         <h5>Note: Consider discount options</h5>

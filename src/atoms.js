@@ -37,3 +37,7 @@ export const enteredMileageState = atom({
   key: "enteredMileageState",
   default: "",
 });
+export const selectedServicesState = atom({
+  key: "selectedServicesState",
+  default: [],
+});
