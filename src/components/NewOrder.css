@@ -3,20 +3,21 @@
   justify-content: space-between;
   min-height: 100%;
 }
-.left-side {
+.left-side-container {
   display: flex;
   flex-direction: column;
   width: 30%;
 }
-.middle {
+.middle-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 30%;
 }
-.right-side {
+.right-side-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   width: 30%;
 }
 
@@ -65,4 +66,25 @@
 }
 .discount-options > ul > li {
   list-style: none;
+}
+.right-side-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+.selected-services {
+  display: flex;
+}
+.total-amount-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.controls {
+  display: flex;
+  justify-content: flex-end;
 }

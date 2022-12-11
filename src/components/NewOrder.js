@@ -111,7 +111,7 @@ const NewOrder = () => {
 
   return (
     <div className="new-order-container">
-      <div className="left-side">
+      <div className="left-side-container">
         <div className="alpha-logo">
           <img src={alphaLogo} />
           <h1>alpha</h1>
@@ -176,7 +176,7 @@ const NewOrder = () => {
           helperText={enteredMileage < 0 ? `Invalid input` : " "}
         ></TextField>
       </div>
-      <div className="middle">
+      <div className="middle-container">
         <div>Calendar</div>
         <div className="type-of-service">
           <label>Type of service</label>
@@ -214,7 +214,27 @@ const NewOrder = () => {
           </ul>
         </div>
       </div>
-      <div className="right-side"></div>
+      <div className="right-side-container">
+        <h4>Order summary</h4>
+        <p>Date & Time</p>
+        <div className="selected-services">
+          <ul>
+            <li>{`Chain change 100 $`}</li>
+            <li>{`Oil and oil filter change 100 $`}</li>
+            <li>{`Air filter change 100 $`}</li>
+          </ul>
+        </div>
+        <hr></hr>
+        <div className="total-amount-container">
+          <div>{`Full Price: ${"300"} $`}</div>
+          <div>{`Discount: ${"20"} %`}</div>
+          <div>{`Price: ${"240"} $`}</div>
+        </div>
+        <div className="controls">
+          <a href="#">Cancel Order</a>
+          <button type="submit">Create Order</button>
+        </div>
+      </div>
     </div>
   );
 };
