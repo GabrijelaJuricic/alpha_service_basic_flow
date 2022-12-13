@@ -11,8 +11,8 @@ const ServiceCard = () => {
       <Calendar></Calendar>
       <div className="type-of-service">
         <label className="label">Type of service</label>
-        {TYPE_OF_SERVICE.map(({ service, price, id }) => {
-          return <ServiceItem service={service} price={price} id={id} />;
+        {TYPE_OF_SERVICE.map(({ name, price, id }) => {
+          return <ServiceItem name={name} price={price} key={id} />;
         })}
       </div>
       <DiscountOptions></DiscountOptions>
