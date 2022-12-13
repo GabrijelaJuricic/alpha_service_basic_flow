@@ -1,0 +1,12 @@
+.discount-options {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+}
+.discount-options > ul {
+  margin-top: 0;
+  padding: 0;
+}
+.discount-options > ul > li {
+  list-style: none;
+}

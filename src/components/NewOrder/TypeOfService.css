@@ -1,0 +1,31 @@
+.service-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 30%;
+}
+.service-price-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+.service-price {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.checkbox-round {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: sub;
+  border: 1px solid #ddd;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.checkbox-round:checked {
+  background-color: black;
+}

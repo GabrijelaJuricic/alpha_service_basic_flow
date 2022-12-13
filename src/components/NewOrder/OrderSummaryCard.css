@@ -8,3 +8,16 @@
   border: 1px solid #d0d0d0;
   border-radius: 8px;
 }
+
+.selected-services {
+  display: flex;
+}
+.total-amount-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
