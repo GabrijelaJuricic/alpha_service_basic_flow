@@ -1,12 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import motorcycle_1 from "../assets/motorcycle_1.png";
 import alphaService from "../assets/alphaService.png";
 import alphaLogo from "../assets/alphaLogo.png";
 import "./Login.css";
 
 const Login = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="login-container">

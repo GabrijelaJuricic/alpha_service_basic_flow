@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import service_pricing_list from "../../../src/service_pricing_list.csv";
+import service_pricing_list from "../../../constants/service_pricing_list.csv";
 import Papa from "papaparse";
-import alphaLogo from "../../assets/alphaLogo.png";
+import alphaLogo from "../../../assets/alphaLogo.png";
 import { useRecoilState } from "recoil";
 import {
   csvContentState,
@@ -12,7 +12,7 @@ import {
   lastSupportedYearState,
   enteredYearState,
   enteredMileageState,
-} from "../../atoms";
+} from "../../../atoms";
 import { TextField, MenuItem, Select } from "@mui/material";
 
 import { FormControl, InputLabel } from "@mui/material";

@@ -1,9 +1,9 @@
 import React from "react";
 // import { useRecoilState } from "recoil";
 // import { selectedServicesState } from "../../atoms";
-import "./TypeOfService.css";
+import "./ServiceItem.css";
 
-const TypeOfService = ({ ...props }) => {
+const ServiceItem = ({ ...props }) => {
   //   const [selectedServices, setSelectedServices] = useRecoilState(
   //     selectedServicesState
   //   );
@@ -29,4 +29,4 @@ const TypeOfService = ({ ...props }) => {
   );
 };
 
-export default TypeOfService;
+export default ServiceItem;

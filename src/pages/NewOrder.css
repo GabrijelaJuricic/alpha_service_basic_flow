@@ -3,8 +3,3 @@
   justify-content: space-between;
   min-height: 100%;
 }
-.type-of-service {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
