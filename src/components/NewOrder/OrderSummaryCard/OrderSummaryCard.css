@@ -8,9 +8,14 @@
   border: 1px solid #d0d0d0;
   border-radius: 8px;
 }
-
 .selected-services {
   display: flex;
+}
+.selected-services > ul {
+  padding: 0;
+}
+.selected-services > ul > li {
+  list-style: none;
 }
 .total-amount-container {
   display: flex;

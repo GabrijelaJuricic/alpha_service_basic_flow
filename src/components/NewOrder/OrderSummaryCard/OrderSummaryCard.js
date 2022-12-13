@@ -1,16 +1,24 @@
 import React from "react";
+import { useRecoilValue } from "recoil";
+import { selectedServicesState } from "../../../atoms";
 import "./OrderSummaryCard.css";
 
 const OrderSummaryCard = () => {
+  const selectedServices = useRecoilValue(selectedServicesState);
+
   return (
     <div className="summary-card-container">
       <h4>Order summary</h4>
       <p>Date & Time</p>
       <div className="selected-services">
         <ul>
-          <li>{`Chain change 100 $`}</li>
-          <li>{`Oil and oil filter change 100 $`}</li>
-          <li>{`Air filter change 100 $`}</li>
+          {selectedServices.map(({ name, price, id }) => {
+            return (
+              <li>
+                {name} {`${price} $`}
+              </li>
+            );
+          })}
         </ul>
       </div>
       <hr />
