@@ -8,6 +8,10 @@ import "./MyOrders.css";
 const MyOrders = () => {
   const navigate = useNavigate();
 
+  const createNewOrderHandler = () => {
+    navigate("/new-order");
+  };
+
   return (
     <div className="my-orders-container">
       <div className="my-orders-left">
@@ -17,9 +21,7 @@ const MyOrders = () => {
             <h1>alpha</h1>
           </div>
           <div className="create-new-order-btn">
-            <button onClick={() => navigate("/new-order")}>
-              Create New Order
-            </button>
+            <button onClick={createNewOrderHandler}>Create New Order</button>
           </div>
         </div>
         <div className="my-orders-title">

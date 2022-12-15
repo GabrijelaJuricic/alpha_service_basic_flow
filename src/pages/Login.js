@@ -1,12 +1,16 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import motorcycle_1 from "../assets/motorcycle_1.png";
 import alphaService from "../assets/alphaService.png";
 import alphaLogo from "../assets/alphaLogo.png";
 import "./Login.css";
 
 const Login = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const continueToMyOrdersHandler = () => {
+    navigate("/my-orders");
+  };
 
   return (
     <div className="login-container">
@@ -19,7 +23,9 @@ const Login = () => {
         <h1>alpha service</h1>
         <label>Email address</label>
         <input type="email" name="email" />
-        <button type="button">Continue</button>
+        <button type="button" onClick={continueToMyOrdersHandler}>
+          Continue
+        </button>
       </div>
       <div className="login-right">
         <img className="login-motorcycle_1" src={motorcycle_1} />
