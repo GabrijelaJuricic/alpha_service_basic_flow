@@ -41,3 +41,7 @@ export const selectedServicesState = atom({
   key: "selectedServicesState",
   default: [],
 });
+export const totalPriceState = atom({
+  key: "totalPriceState",
+  default: 0,
+});

@@ -1,10 +1,11 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { selectedServicesState } from "../../../atoms";
+import { selectedServicesState, totalPriceState } from "../../../atoms";
 import "./OrderSummaryCard.css";
 
 const OrderSummaryCard = () => {
   const selectedServices = useRecoilValue(selectedServicesState);
+  const totalPrice = useRecoilValue(totalPriceState);
 
   return (
     <div className="summary-card-container">
@@ -14,7 +15,7 @@ const OrderSummaryCard = () => {
         <ul>
           {selectedServices.map(({ name, price, id }) => {
             return (
-              <li>
+              <li key={Math.random()}>
                 {name} {`${price} $`}
               </li>
             );
@@ -23,9 +24,9 @@ const OrderSummaryCard = () => {
       </div>
       <hr />
       <div className="total-amount-container">
-        <div>{`Full Price: ${"300"} $`}</div>
-        <div>{`Discount: ${"20"} %`}</div>
-        <div>{`Price: ${"240"} $`}</div>
+        <div>{`Full Price: ${totalPrice} $`}</div>
+        <div>{`Discount: ${0} $`}</div>
+        <div>{`Price: ${totalPrice} $`}</div>
       </div>
       <div className="controls">
         <a href="#">Cancel Order</a>

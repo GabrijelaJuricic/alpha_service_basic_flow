@@ -10,7 +10,7 @@ const ServiceItem = ({ ...props }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   // Helper functions //
-  const servicesChangeHandler = (event) => {
+  const servicesChangeHandler = () => {
     if (!isChecked) {
       setSelectedServices((prevState) => {
         return [...prevState, { name: props.name, price: props.price }];
@@ -23,6 +23,9 @@ const ServiceItem = ({ ...props }) => {
       setSelectedServices(newSelectedServices);
       setIsChecked(false);
     }
+    !isChecked
+      ? props.onTotalPrice(props.price)
+      : props.onTotalPrice(props.price * -1.0);
   };
 
   return (
