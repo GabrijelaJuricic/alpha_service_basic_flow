@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import dayjs from "dayjs";
 
 export const csvContentState = atom({
   key: "csvContentState",
@@ -44,4 +45,8 @@ export const selectedServicesState = atom({
 export const totalPriceState = atom({
   key: "totalPriceState",
   default: 0,
+});
+export const dateTimePickerState = atom({
+  key: "dateTimePickerState",
+  default: dayjs(new Date()),
 });

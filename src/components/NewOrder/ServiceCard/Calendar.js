@@ -1,23 +1,24 @@
 import React from "react";
-import dayjs from "dayjs";
 import TextField from "@mui/material/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { useRecoilState } from "recoil";
+import { dateTimePickerState } from "../../../atoms";
 
 const Calendar = () => {
-  const [value, setValue] = React.useState(dayjs(new Date()));
+  const [dateAndTime, setDateAndTime] = useRecoilState(dateTimePickerState);
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const handleDateChange = (newValue) => {
+    setDateAndTime(newValue);
   };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateTimePicker
         label="New appointment"
-        value={value}
-        onChange={handleChange}
+        value={dateAndTime}
+        onChange={handleDateChange}
         renderInput={(params) => <TextField {...params} />}
       />
     </LocalizationProvider>
