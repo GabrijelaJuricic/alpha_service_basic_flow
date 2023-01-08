@@ -1,18 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import {
-  dateTimePickerState,
-  selectedServicesState,
-  totalPriceState,
-} from "../../../atoms";
+import { dateTimePickerState, selectedServicesState } from "../../../atoms";
+import useCalculatePrices from "../../../hooks/useCalculatePrices";
 import "./OrderSummaryCard.css";
 
 const OrderSummaryCard = () => {
-  const navigate = useNavigate();
   const selectedServices = useRecoilValue(selectedServicesState);
-  const totalPrice = useRecoilValue(totalPriceState);
   const dateAndTime = useRecoilValue(dateTimePickerState);
+  const [fullPrice, discount, totalPrice] = useCalculatePrices();
+  const navigate = useNavigate();
 
   // Date and time deconstruction
   const dd = dateAndTime.$d.getDate();
@@ -44,8 +41,8 @@ const OrderSummaryCard = () => {
       </div>
       <hr />
       <div className="total-amount-container">
-        <div>{`Full Price: ${totalPrice} $`}</div>
-        <div>{`Discount: ${0} $`}</div>
+        <div>{`Full Price: ${fullPrice} $`}</div>
+        <div>{`Discount: ${discount} $`}</div>
         <div>{`Price: ${totalPrice} $`}</div>
       </div>
       <div className="controls">

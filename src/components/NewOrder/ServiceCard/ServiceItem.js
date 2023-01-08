@@ -23,9 +23,6 @@ const ServiceItem = ({ ...props }) => {
       setSelectedServices(newSelectedServices);
       setIsChecked(false);
     }
-    !isChecked
-      ? props.onTotalPrice(props.price)
-      : props.onTotalPrice(props.price * -1.0);
   };
 
   return (
