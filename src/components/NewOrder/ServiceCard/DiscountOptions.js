@@ -10,8 +10,8 @@ const DiscountOptions = () => {
           <strong>40 EUR OFF</strong> for full service
         </li>
         <li>
-          <strong>20 EUR OFF</strong> - Chain change + Oil and oil filter change
-          + Air filter change
+          <strong>20% OFF</strong> - Chain change + Oil and oil filter change +
+          Air filter change
         </li>
         <li>
           <strong>20 EUR OFF</strong> - Oil and oil filter change + Air filter

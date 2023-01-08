@@ -8,7 +8,7 @@ import "./OrderSummaryCard.css";
 const OrderSummaryCard = () => {
   const selectedServices = useRecoilValue(selectedServicesState);
   const dateAndTime = useRecoilValue(dateTimePickerState);
-  const [fullPrice, discount, totalPrice] = useCalculatePrices();
+  const [fullPrice, discount] = useCalculatePrices();
   const navigate = useNavigate();
 
   // Date and time deconstruction
@@ -30,7 +30,7 @@ const OrderSummaryCard = () => {
       <div>{`${mm}/${dd}/${yy} ${hh}:${min}`}</div>
       <div className="selected-services">
         <ul>
-          {selectedServices.map(({ name, price, id }) => {
+          {selectedServices.map(({ name, price }) => {
             return (
               <li key={Math.random()}>
                 {name} {`${price} $`}
@@ -43,7 +43,7 @@ const OrderSummaryCard = () => {
       <div className="total-amount-container">
         <div>{`Full Price: ${fullPrice} $`}</div>
         <div>{`Discount: ${discount} $`}</div>
-        <div>{`Price: ${totalPrice} $`}</div>
+        <div>{`Price: ${fullPrice - discount} $`}</div>
       </div>
       <div className="controls">
         <a href="#" onClick={cancelOrderHandler}>

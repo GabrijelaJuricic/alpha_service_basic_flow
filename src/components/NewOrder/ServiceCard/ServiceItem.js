@@ -13,7 +13,10 @@ const ServiceItem = ({ ...props }) => {
   const servicesChangeHandler = () => {
     if (!isChecked) {
       setSelectedServices((prevState) => {
-        return [...prevState, { name: props.name, price: props.price }];
+        return [
+          ...prevState,
+          { name: props.name, price: props.price, id: props.id },
+        ];
       });
       setIsChecked(true);
     } else {
@@ -32,6 +35,7 @@ const ServiceItem = ({ ...props }) => {
           type="checkbox"
           className="checkbox-round"
           value={props.name}
+          key={props.key}
           checked={isChecked}
           onChange={servicesChangeHandler}
         />
