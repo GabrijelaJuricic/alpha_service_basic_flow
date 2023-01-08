@@ -9,7 +9,13 @@ const useCalculatePrices = () => {
 
   const selectedServices = useRecoilValue(selectedServicesState);
 
-  useEffect(() => {}, [selectedServices]);
+  useEffect(() => {
+    var sum = 0;
+    selectedServices.forEach((service) => {
+      sum += service.price;
+    });
+    setFullPrice(sum);
+  }, [selectedServices]);
 
   return [fullPrice, discount, totalPrice];
 };
