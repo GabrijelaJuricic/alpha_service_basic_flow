@@ -24,7 +24,7 @@ export const selectedModelState = atom({
   key: "selectedModelState",
   default: "",
 });
-// --- Year --- //
+
 export const lastSupportedYearState = atom({
   key: "lastSupportedYearState",
   default: "",
@@ -33,18 +33,17 @@ export const enteredYearState = atom({
   key: "enteredYearState",
   default: "",
 });
-// --- Mileage --- //
 export const enteredMileageState = atom({
   key: "enteredMileageState",
   default: "",
 });
+export const serviceAndPriceForSelectedModelState = atom({
+  key: "serviceAndPriceForSelectedModelState",
+  default: [],
+});
 export const selectedServicesState = atom({
   key: "selectedServicesState",
   default: [],
-});
-export const totalPriceState = atom({
-  key: "totalPriceState",
-  default: 0,
 });
 export const dateTimePickerState = atom({
   key: "dateTimePickerState",

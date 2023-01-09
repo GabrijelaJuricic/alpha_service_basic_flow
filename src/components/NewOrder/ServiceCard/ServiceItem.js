@@ -35,7 +35,6 @@ const ServiceItem = ({ ...props }) => {
           type="checkbox"
           className="checkbox-round"
           value={props.name}
-          key={props.key}
           checked={isChecked}
           onChange={servicesChangeHandler}
         />

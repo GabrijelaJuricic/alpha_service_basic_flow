@@ -12,9 +12,9 @@ import {
   lastSupportedYearState,
   enteredYearState,
   enteredMileageState,
+  serviceAndPriceForSelectedModelState,
 } from "../../../atoms";
 import { TextField, MenuItem, Select } from "@mui/material";
-
 import { FormControl, InputLabel } from "@mui/material";
 import "./ProductCard.css";
 
@@ -31,8 +31,11 @@ const ProductCard = () => {
   const [enteredYear, setEnteredYear] = useRecoilState(enteredYearState);
   const [enteredMileage, setEnteredMileage] =
     useRecoilState(enteredMileageState);
+  const [serviceAndPrice, setServiceAndPrice] = useRecoilState(
+    serviceAndPriceForSelectedModelState
+  );
 
-  //  --- useEffect --- //
+  // useEffect for fetching data
   useEffect(() => {
     fetch(service_pricing_list)
       .then((response) => response.text())
@@ -45,6 +48,7 @@ const ProductCard = () => {
       });
   }, []);
 
+  // useEffect for setting brands
   useEffect(() => {
     var result = [];
     if (csvContent.length > 1) {
@@ -56,6 +60,7 @@ const ProductCard = () => {
     }
   }, [csvContent]);
 
+  // useEffect for setting models
   useEffect(() => {
     var result = [];
     if (selectedBrand) {
@@ -69,13 +74,24 @@ const ProductCard = () => {
     }
   }, [selectedBrand]);
 
+  // useEffect for setting supported year and services with prices for selected model
   useEffect(() => {
+    var serviceAndPriceResult = [];
     if (selectedModel) {
       csvContent.slice(1).map((row) => {
-        if (row[0] === selectedBrand && row[1] === selectedModel) {
+        if (row[1] === selectedModel) {
           setLastSupportedYear(row[2]);
-          // todo
-          // setati state servicePricesForSelectedModel(3,4,5,6)
+          serviceAndPriceResult.push(
+            {
+              name: "Chain change",
+              price: row[3],
+              id: 0,
+            },
+            { name: "Oil and oil filter change", price: row[4], id: 1 },
+            { name: "Air filter change", price: row[5], id: 2 },
+            { name: "Brake fluid change", price: row[6], id: 3 }
+          );
+          console.log(serviceAndPriceResult);
         }
       });
     }
