@@ -84,14 +84,18 @@ const ProductCard = () => {
           serviceAndPriceResult.push(
             {
               name: "Chain change",
-              price: row[3],
+              price: parseFloat(row[3]),
               id: 0,
             },
-            { name: "Oil and oil filter change", price: row[4], id: 1 },
-            { name: "Air filter change", price: row[5], id: 2 },
-            { name: "Brake fluid change", price: row[6], id: 3 }
+            {
+              name: "Oil and oil filter change",
+              price: parseFloat(row[4]),
+              id: 1,
+            },
+            { name: "Air filter change", price: parseFloat(row[5]), id: 2 },
+            { name: "Brake fluid change", price: parseFloat(row[6]), id: 3 }
           );
-          console.log(serviceAndPriceResult);
+          setServiceAndPrice(serviceAndPriceResult);
         }
       });
     }

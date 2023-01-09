@@ -25,7 +25,6 @@ const useCalculatePrices = () => {
           return;
         }
       });
-      //   console.log("vracam " + result + " za param " + serviceId);
       return result;
     }
 
@@ -36,27 +35,16 @@ const useCalculatePrices = () => {
       selectedServiceById(3)
     ) {
       setDiscount(40);
-      //   console.log("prosla sve 4");
     } else if (
       selectedServiceById(0) &&
       selectedServiceById(1) &&
       selectedServiceById(2)
     ) {
-      setDiscount(sum * 0.2);
-    } else if (
-      !selectedServiceById(0) &&
-      selectedServiceById(1) &&
-      selectedServiceById(2) &&
-      !selectedServiceById(3)
-    ) {
+      setDiscount((sum * 0.2).toFixed(2));
+    } else if (selectedServiceById(1) && selectedServiceById(2)) {
       setDiscount(20);
-    } else if (
-      selectedServiceById(0) &&
-      !selectedServiceById(1) &&
-      !selectedServiceById(2) &&
-      selectedServiceById(3)
-    ) {
-      setDiscount(sum * 0.15);
+    } else if (selectedServiceById(0) && selectedServiceById(3)) {
+      setDiscount((sum * 0.15).toFixed(2));
     } else setDiscount(0);
   }, [selectedServices]);
 
