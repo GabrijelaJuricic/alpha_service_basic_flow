@@ -1,38 +1,18 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import alphaLogo from "../assets/alphaLogo.png";
+import Table from "../components/MyOrders/Table";
 import motorcycle_2 from "../assets/motorcycle_2.png";
 import alpha from "../assets/alpha.png";
-import TableCell from "@mui/material/TableCell";
-import {
-  Table,
-  TableBody,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
 import "./MyOrders.css";
-import { useRecoilValue } from "recoil";
-import { enteredMileageState, selectedModelState } from "../atoms";
 
 const MyOrders = () => {
-  const selectedModel = useRecoilValue(selectedModelState);
-  const mileage = useRecoilValue(enteredMileageState);
   const navigate = useNavigate();
 
   const createNewOrderHandler = () => {
     navigate("/new-order");
   };
 
-  const rows = [
-    {
-      orderId: "orderId",
-      serviceDate: "dd/mm/yy",
-      selectedModel: selectedModel,
-      mileage: mileage,
-      progress: "cancelled",
-    },
-  ];
   return (
     <div className="my-orders-container">
       <div className="my-orders-left">
@@ -53,39 +33,7 @@ const MyOrders = () => {
           <p>You have no orders.</p>
           <Link to="/new-order">Create New Order</Link>
         </div> */}
-        <TableContainer sx={{ width: 900 }}>
-          <Table aria-label="customized table">
-            <TableHead sx={{ paddingLeft: 0 }}>
-              <TableRow>
-                <TableCell>Order ID</TableCell>
-                <TableCell align="left">Service Date</TableCell>
-                <TableCell align="left">Model</TableCell>
-                <TableCell align="left">Mileage</TableCell>
-                <TableCell align="left">Progress</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow>
-                  <TableCell component="th" scope="row">
-                    {row.orderId}
-                  </TableCell>
-                  <TableCell align="left">{row.serviceDate}</TableCell>
-                  <TableCell align="left">{row.selectedModel}</TableCell>
-                  <TableCell align="left">{row.mileage}</TableCell>
-                  <TableCell align="left">{row.progress}</TableCell>
-                  <TableCell align="center">
-                    {
-                      <a href="#" style={{ textDecoration: "none" }}>
-                        Description
-                      </a>
-                    }
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Table />
       </div>
       <div className="my-orders-right">
         <img

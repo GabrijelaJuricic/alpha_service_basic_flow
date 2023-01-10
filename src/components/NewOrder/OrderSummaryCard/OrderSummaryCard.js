@@ -17,7 +17,7 @@ const OrderSummaryCard = () => {
   const navigate = useNavigate();
 
   // Date and time deconstruction
-  const date = `${dateAndTime}`;
+  const date = `${dateAndTime.format("MMMM D, YYYY hh:mm")}`;
 
   const createOrderHandler = () => {
     navigate("/my-orders");
