@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import {
+  collectValuesState,
   dateSelectedState,
   dateTimePickerState,
+  enteredMileageState,
+  selectedBrandState,
+  selectedModelState,
   selectedServicesState,
 } from "../../../atoms";
 import useCalculatePrices from "../../../hooks/useCalculatePrices";
 import "./OrderSummaryCard.css";
 
 const OrderSummaryCard = () => {
+  const [collectedValues, setCollectedValues] =
+    useRecoilState(collectValuesState);
+  const brand = useRecoilValue(selectedBrandState);
+  const model = useRecoilValue(selectedModelState);
+  const mileage = useRecoilValue(enteredMileageState);
   const selectedServices = useRecoilValue(selectedServicesState);
   const isSelected = useRecoilValue(dateSelectedState);
   const dateAndTime = useRecoilValue(dateTimePickerState);
@@ -19,12 +28,18 @@ const OrderSummaryCard = () => {
   // Date and time deconstruction
   const date = `${dateAndTime.format("MMMM D, YYYY hh:mm")}`;
 
+  const allStates = {
+    orderId: Math.random().toString().slice(2, 11),
+    serviceDay: dateAndTime.format("DD/MM/YYYY"),
+    brand: brand,
+    model: model,
+    mileage: mileage,
+  };
   const createOrderHandler = () => {
+    setCollectedValues((prevState) => [...prevState, allStates]);
     navigate("/my-orders");
   };
-  const cancelOrderHandler = () => {
-    navigate("/");
-  };
+
   return (
     <div className="summary-card-container">
       <h4>Order summary</h4>
@@ -47,9 +62,6 @@ const OrderSummaryCard = () => {
         <div>{`Price: ${fullPrice - discount} $`}</div>
       </div>
       <div className="controls">
-        <a href="#" onClick={cancelOrderHandler}>
-          Cancel Order
-        </a>
         <button type="submit" onClick={createOrderHandler}>
           Create Order
         </button>

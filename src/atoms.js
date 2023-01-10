@@ -53,3 +53,7 @@ export const dateTimePickerState = atom({
   key: "dateTimePickerState",
   default: dayjs().add(1, "day"),
 });
+export const collectValuesState = atom({
+  key: "collectedValuesState",
+  default: [],
+});

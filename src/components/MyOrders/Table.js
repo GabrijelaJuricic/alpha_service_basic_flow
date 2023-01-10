@@ -1,30 +1,35 @@
 import React from "react";
+import { useRecoilValue } from "recoil";
+import { collectValuesState } from "../../atoms";
+
+import { TABLE_HEADER } from "../../constants/tableHeader";
 import "./Table.css";
 
 const Table = () => {
+  const collectedValues = useRecoilValue(collectValuesState);
+
   return (
     <table>
-      <tr>
-        <th>Order ID</th>
-        <th>Service day</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Mileage</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>a</td>
-        <td>b</td>
-        <td>c</td>
-        <td>d</td>
-        <td>e</td>
-      </tr>
+      <thead>
+        <tr>
+          {TABLE_HEADER.map((title, index) => {
+            return <th key={index}>{title}</th>;
+          })}
+        </tr>
+      </thead>
+      <tbody>
+        {collectedValues.map((item, index) => {
+          return (
+            <tr key={index}>
+              <td>{item.orderId}</td>
+              <td>{item.serviceDay}</td>
+              <td>{item.brand}</td>
+              <td>{item.model}</td>
+              <td>{item.mileage}</td>
+            </tr>
+          );
+        })}
+      </tbody>
     </table>
   );
 };
