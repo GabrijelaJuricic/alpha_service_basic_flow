@@ -45,7 +45,11 @@ export const selectedServicesState = atom({
   key: "selectedServicesState",
   default: [],
 });
+export const dateSelectedState = atom({
+  key: "dateSelectedState",
+  default: false,
+});
 export const dateTimePickerState = atom({
   key: "dateTimePickerState",
-  default: dayjs(new Date()),
+  default: dayjs().add(1, "day"),
 });

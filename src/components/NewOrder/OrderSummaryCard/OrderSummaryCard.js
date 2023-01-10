@@ -1,22 +1,23 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { dateTimePickerState, selectedServicesState } from "../../../atoms";
+import {
+  dateSelectedState,
+  dateTimePickerState,
+  selectedServicesState,
+} from "../../../atoms";
 import useCalculatePrices from "../../../hooks/useCalculatePrices";
 import "./OrderSummaryCard.css";
 
 const OrderSummaryCard = () => {
   const selectedServices = useRecoilValue(selectedServicesState);
+  const isSelected = useRecoilValue(dateSelectedState);
   const dateAndTime = useRecoilValue(dateTimePickerState);
   const [fullPrice, discount] = useCalculatePrices();
   const navigate = useNavigate();
 
   // Date and time deconstruction
-  const dd = dateAndTime.$d.getDate();
-  const mm = dateAndTime.$d.getMonth() + 1;
-  const yy = dateAndTime.$d.getFullYear();
-  const hh = dateAndTime.$d.getHours();
-  const min = dateAndTime.$d.getMinutes();
+  const date = `${dateAndTime}`;
 
   const createOrderHandler = () => {
     navigate("/my-orders");
@@ -27,7 +28,7 @@ const OrderSummaryCard = () => {
   return (
     <div className="summary-card-container">
       <h4>Order summary</h4>
-      <div>{`${mm}/${dd}/${yy} ${hh}:${min}`}</div>
+      {isSelected && <div>{date}</div>}
       <div className="selected-services">
         <ul>
           {selectedServices.map(({ name, price }) => {
