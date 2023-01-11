@@ -1,34 +1,103 @@
 .login-container {
   display: flex;
-  justify-content: space-between;
   min-height: 100%;
+  min-width: 1370px;
+  /* minwidth 100vw */
 }
 .login-left {
   display: flex;
   flex-direction: column;
+  padding: 90px 0px 0px 170px;
   width: 35%;
+}
+.login-left > h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 16px;
+  letter-spacing: -0.02em;
+  color: #737373;
+}
+.login-left > h1 {
+  margin-top: 15px;
+  margin-bottom: 45px;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #22160f;
+}
+.login-left > label {
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #737373;
+}
+.login-left > input {
+  display: flex;
+  width: 80%;
+  height: 45px;
+  box-sizing: border-box;
+  padding: 8px 15px;
+  margin-bottom: 18px;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  background: #e5e5e5;
+  font-family: "poppins";
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #22160f;
+}
+.login-left > button {
+  display: flex;
+  width: 80%;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: #836048;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #fafafa;
 }
 .alpha-logo {
   display: flex;
-  width: 7.5rem;
+  width: 10rem;
+  margin-bottom: 40px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+}
+.alpha-logo > img {
+  width: 45px;
+  height: 45px;
+}
+.alpha-logo > h1 {
+  margin: 0;
+  font-size: 35px;
 }
 .login-right {
-  display: flex;
   width: 65%;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+.motorcycle_1-container {
+  display: flex;
 }
 .login-motorcycle_1 {
-  position: relative;
-  width: 810px;
-  bottom: 35px;
-  left: 85px;
+  width: 100%;
 }
-.login-alpha-service {
-  position: relative;
-  width: 240px;
-  height: 94px;
-  right: 145px;
-  top: 550px;
+.login_alpha-service {
+  position: absolute;
+  width: 190px;
+  height: 80px;
+  right: 55px;
+  bottom: 53px;
 }

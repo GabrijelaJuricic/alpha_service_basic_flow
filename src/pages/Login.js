@@ -28,9 +28,11 @@ const Login = () => {
         </button>
       </div>
       <div className="login-right">
-        <img className="login-motorcycle_1" src={motorcycle_1} />
-        <img className="login-alpha-service" src={alphaService} />
+        <div className="motorcycle_1-container">
+          <img className="login-motorcycle_1" src={motorcycle_1} />
+        </div>
       </div>
+      <img className="login_alpha-service" src={alphaService} />
     </div>
   );
 };
