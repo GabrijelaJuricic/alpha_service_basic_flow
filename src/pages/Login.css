@@ -1,16 +1,25 @@
 .login-container {
   display: flex;
   min-height: 100%;
-  min-width: 1370px;
-  /* minwidth 100vw */
+  min-width: 1320px;
+  justify-content: center;
 }
 .login-left {
   display: flex;
   flex-direction: column;
-  padding: 90px 0px 0px 170px;
-  width: 35%;
+  padding-top: 90px;
+  padding-left: 50px;
+  width: 465px;
 }
-.login-left > h3 {
+.login-main-container {
+  display: flex;
+  flex-direction: column;
+}
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+}
+.welcome-message > h3 {
   margin: 0;
   font-weight: 600;
   font-size: 18px;
@@ -18,16 +27,19 @@
   letter-spacing: -0.02em;
   color: #737373;
 }
-.login-left > h1 {
-  margin-top: 15px;
-  margin-bottom: 45px;
+.welcome-message > h1 {
+  margin-top: 10px;
+  margin-bottom: 70px;
   font-weight: 600;
   font-size: 30px;
   line-height: 20px;
   letter-spacing: -0.02em;
   color: #22160f;
 }
-.login-left > label {
+.label-container {
+  display: flex;
+}
+.label-container > label {
   margin-bottom: 8px;
   font-weight: 400;
   font-size: 14px;
@@ -35,7 +47,11 @@
   letter-spacing: -0.02em;
   color: #737373;
 }
-.login-left > input {
+.input-container {
+  display: flex;
+  width: 456px;
+}
+.input-container > input {
   display: flex;
   width: 80%;
   height: 45px;
@@ -52,7 +68,10 @@
   letter-spacing: -0.02em;
   color: #22160f;
 }
-.login-left > button {
+.button-container {
+  display: flex;
+}
+.button-container > button {
   display: flex;
   width: 80%;
   height: 45px;
@@ -70,34 +89,95 @@
 }
 .alpha-logo {
   display: flex;
-  width: 10rem;
-  margin-bottom: 40px;
-  justify-content: space-between;
+  margin-bottom: 30px;
   align-items: center;
 }
 .alpha-logo > img {
   width: 45px;
   height: 45px;
+  margin-right: 10px;
 }
 .alpha-logo > h1 {
   margin: 0;
   font-size: 35px;
 }
 .login-right {
-  width: 65%;
-  padding-right: 30px;
-  box-sizing: border-box;
+  width: 800px;
+  max-width: 1320px;
 }
 .motorcycle_1-container {
   display: flex;
+  flex-direction: column;
 }
 .login-motorcycle_1 {
-  width: 100%;
+  max-width: 775px;
+  display: flex;
 }
-.login_alpha-service {
-  position: absolute;
+.login_alpha_service-container {
+  position: sticky;
+  bottom: 86px;
+  display: flex;
+  justify-content: flex-end;
+  width: 96%;
+}
+.login_alpha_service {
   width: 190px;
   height: 80px;
-  right: 55px;
-  bottom: 53px;
+}
+
+/* */
+@media screen and (max-width: 992px) {
+  .login-left {
+    width: 700px;
+    padding-left: 0;
+    padding-top: 90px;
+  }
+  .login-container {
+    min-width: 0;
+  }
+  .login-right {
+    display: none;
+  }
+  .login-main-container > h1 {
+    margin-bottom: 75px;
+  }
+  .label-container {
+    width: 165px;
+    justify-content: end;
+  }
+  .input-container,
+  .button-container {
+    width: 700px;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .login-left {
+    width: 400px;
+  }
+  .label-container {
+    width: 160px;
+    justify-content: flex-start;
+  }
+  .input-container,
+  .button-container {
+    width: 500px;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 600px) {
+  .label-container {
+    width: 134px;
+  }
+  .input-container,
+  .button-container {
+    width: 100%;
+    justify-content: center;
+  }
+  .input-container > input,
+  .button-container > button {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1200px) {
 }

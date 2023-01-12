@@ -19,20 +19,32 @@ const Login = () => {
           <img src={alphaLogo} />
           <h1>alpha</h1>
         </div>
-        <h3>Welcome to</h3>
-        <h1>alpha service</h1>
-        <label>Email address</label>
-        <input type="email" name="email" />
-        <button type="button" onClick={continueToMyOrdersHandler}>
-          Continue
-        </button>
+        <div className="login-main-container">
+          <div className="welcome-message">
+            <h3>Welcome to</h3>
+            <h1>alpha service</h1>
+          </div>
+          <div className="label-container">
+            <label>Email address</label>
+          </div>
+          <div className="input-container">
+            <input type="email" name="email" />
+          </div>
+          <div className="button-container">
+            <button type="button" onClick={continueToMyOrdersHandler}>
+              Continue
+            </button>
+          </div>
+        </div>
       </div>
       <div className="login-right">
         <div className="motorcycle_1-container">
           <img className="login-motorcycle_1" src={motorcycle_1} />
+          <div className="login_alpha_service-container">
+            <img className="login_alpha_service" src={alphaService} />
+          </div>
         </div>
       </div>
-      <img className="login_alpha-service" src={alphaService} />
     </div>
   );
 };
