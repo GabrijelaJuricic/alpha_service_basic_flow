@@ -4,12 +4,13 @@ import alphaLogo from "../assets/alphaLogo.png";
 import Table from "../components/MyOrders/Table";
 import motorcycle_2 from "../assets/motorcycle_2.png";
 import alpha from "../assets/alpha.png";
+import motorcycle_3 from "../assets/motorcycle_3.png";
 import "./MyOrders.css";
 import { useRecoilValue } from "recoil";
 import { collectValuesState } from "../atoms";
 
 const MyOrders = () => {
-  const hasOrders = useRecoilValue(collectValuesState);
+  // const hasOrders = useRecoilValue(collectValuesState);
 
   const navigate = useNavigate();
 
@@ -33,22 +34,39 @@ const MyOrders = () => {
           <h3>My Orders</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        {hasOrders ? (
-          <div className="my-orders-list">
-            <p>You have no orders.</p>
-            <Link to="/new-order">Create New Order</Link>
-          </div>
-        ) : (
-          <Table />
-        )}
+        {/* <div className="my-orders-list">
+          <p>You have no orders.</p>
+          <Link to="/new-order">Create New Order</Link>
+        </div> */}
+
+        <Table />
       </div>
       <div className="my-orders-right">
-        <img alt="alpha" className="my-orders-alpha" src={alpha} />
-        <img
-          alt="motorcycle_2"
-          className="my-orders-motorcycle_2"
-          src={motorcycle_2}
-        />
+        {/* <div className="no-orders">
+          <img alt="alpha" className="my-orders-alpha" src={alpha} />
+          <div className="no-orders-image">
+            <img
+              alt="motorcycle_2"
+              className="motorcycle_2"
+              src={motorcycle_2}
+            />
+          </div>
+        </div> */}
+        <div className="has-orders">
+          <div className="has-orders-message">
+            <h3>Thank you</h3>
+            <h3>for your order:</h3>
+            <h5>#order number!</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div className="has-orders-image">
+            <img
+              alt="motorcycle_3"
+              className="motorcycle_3"
+              src={motorcycle_3}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
