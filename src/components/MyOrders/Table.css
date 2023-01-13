@@ -1,13 +1,34 @@
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 93%;
+}
+tr > th {
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 th {
   text-align: start;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: -0.02em;
+  color: #737373;
   border-bottom: 0.5px solid rgb(90, 90, 90);
 }
 td,
 th {
-  font-weight: 300;
-  padding: 8px;
+  padding-top: 20px;
+  width: 300px;
+}
+tr > td {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #737373;
+}
+@media screen and (max-width: 992px) {
+  table {
+    width: 100%;
+  }
 }
