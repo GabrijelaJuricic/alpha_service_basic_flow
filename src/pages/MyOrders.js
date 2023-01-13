@@ -5,8 +5,12 @@ import Table from "../components/MyOrders/Table";
 import motorcycle_2 from "../assets/motorcycle_2.png";
 import alpha from "../assets/alpha.png";
 import "./MyOrders.css";
+import { useRecoilValue } from "recoil";
+import { collectValuesState } from "../atoms";
 
 const MyOrders = () => {
+  const hasOrders = useRecoilValue(collectValuesState);
+
   const navigate = useNavigate();
 
   const createNewOrderHandler = () => {
@@ -29,19 +33,22 @@ const MyOrders = () => {
           <h3>My Orders</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        {/* <div className="my-orders-list">
-          <p>You have no orders.</p>
-          <Link to="/new-order">Create New Order</Link>
-        </div> */}
-        <Table />
+        {hasOrders ? (
+          <div className="my-orders-list">
+            <p>You have no orders.</p>
+            <Link to="/new-order">Create New Order</Link>
+          </div>
+        ) : (
+          <Table />
+        )}
       </div>
       <div className="my-orders-right">
+        <img alt="alpha" className="my-orders-alpha" src={alpha} />
         <img
           alt="motorcycle_2"
           className="my-orders-motorcycle_2"
           src={motorcycle_2}
         />
-        <img alt="alpha" className="my-orders-alpha" src={alpha} />
       </div>
     </div>
   );

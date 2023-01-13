@@ -1,49 +1,142 @@
 .my-orders-container {
   display: flex;
+  justify-content: center;
   min-height: 100%;
+  min-width: 1320px;
+  box-sizing: border-box;
+  padding: 90px 0px;
 }
 .alpha-header {
   display: flex;
-  width: 80%;
   justify-content: space-between;
   align-items: center;
+  padding-right: 55px;
+  margin-bottom: 20px;
+}
+.my-orders-container > .my-orders-left > .alpha-header > .alpha-logo {
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 .create-new-order-btn {
+  width: 200px;
+}
+.create-new-order-btn > button {
+  height: 30px;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: #836048;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #fafafa;
 }
 .my-orders-left {
-  width: 68%;
   display: flex;
   flex-direction: column;
+  width: 800px;
 }
 .my-orders-title {
   display: flex;
   flex-direction: column;
 }
+.my-orders-title > h3 {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 84.52%;
+  letter-spacing: -0.02em;
+  color: #22160f;
+}
+.my-orders-title > p {
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #737373;
+}
 .my-orders-list {
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+}
+.my-orders-list > p {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #737373;
+}
+.my-orders-list > a {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #836048;
+  text-decoration: none;
 }
 .my-orders-right {
   display: flex;
-  width: 32%;
+  flex-direction: column;
+  width: 375px;
+  height: 518px;
   background: linear-gradient(40deg, #b2b0b0 0%, #e7e4e4 76.53%);
   border-radius: 5px;
 }
-.my-orders-motorcycle_2 {
-  position: relative;
-  width: 440px;
-  height: 540px;
-  top: 80px;
-  left: 55px;
-}
 .my-orders-alpha {
-  position: relative;
-  width: 130px;
-  height: 45px;
-  right: 360px;
-  top: 40px;
+  position: sticky;
+  width: 85px;
+  height: 30px;
+  display: flex;
+  padding: 13px 0px 0px 16px;
+}
+.my-orders-motorcycle_2 {
+  min-height: 90%;
+  width: 100%;
+}
+@media screen and (max-width: 992px) {
+  .my-orders-container {
+    width: 100%;
+    min-width: 865px;
+  }
+  .my-orders-left {
+    width: 780px;
+  }
+  .my-orders-right {
+    display: none;
+  }
+  .alpha-header {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .my-orders-container {
+    width: 765px;
+    min-width: 0;
+  }
+  .my-orders-left {
+    width: 80%;
+  }
+  .alpha-header {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .my-orders-container {
+    width: 100%;
+  }
+  .create-new-order-btn {
+    width: 130px;
+  }
 }
