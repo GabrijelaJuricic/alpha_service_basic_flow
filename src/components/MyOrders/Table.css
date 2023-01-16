@@ -1,6 +1,13 @@
+.table-container {
+  height: 350px;
+}
 table {
   border-collapse: collapse;
-  width: 93%;
+  width: 95%;
+  height: inherit;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 tr > th {
   padding-top: 20px;
