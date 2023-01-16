@@ -1,5 +1,18 @@
 .product-card-container {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 420px;
+}
+.product-card-container > .alpha-logo {
+  margin-bottom: 0;
+}
+.brand-container,
+.model-container,
+.model-year-container,
+.mileage-container {
+  display: flex;
+  width: 100%;
+}
+.dropdown {
+  width: 80%;
 }

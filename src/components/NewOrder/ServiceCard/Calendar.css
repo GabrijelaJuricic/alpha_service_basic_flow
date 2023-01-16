@@ -1,0 +1,7 @@
+.calendar-container {
+  display: flex;
+  width: 100%;
+}
+.calendar {
+  width: 80%;
+}

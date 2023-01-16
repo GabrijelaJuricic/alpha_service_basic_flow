@@ -30,7 +30,7 @@ const ServiceItem = ({ ...props }) => {
 
   return (
     <div className="service-price-container">
-      <label key={props.id} className="type-of-service-text">
+      <label key={props.id}>
         <input
           type="checkbox"
           className="checkbox-round"
@@ -38,8 +38,9 @@ const ServiceItem = ({ ...props }) => {
           checked={isChecked}
           onChange={servicesChangeHandler}
         />
-        {props.name} {`${props.price} $`}
+        <div>{props.name}</div>
       </label>
+      <div className="service-price-label">{`${props.price} $`}</div>
     </div>
   );
 };

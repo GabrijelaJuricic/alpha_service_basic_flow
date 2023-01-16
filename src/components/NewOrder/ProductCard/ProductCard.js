@@ -122,64 +122,74 @@ const ProductCard = () => {
         <h1>alpha</h1>
       </div>
       <h2>New Order</h2>
-      <FormControl>
-        <InputLabel id="select-brand">Brand</InputLabel>
-        <Select
-          labelId="select-brand-label"
-          id="brand"
-          label="Brand"
-          value={selectedBrand}
-          onChange={handleBrandChange}
-        >
-          {uniqueBrands.map((brand) => {
-            // redo key
-            return (
-              <MenuItem value={brand} key={brand}>
-                {brand}
+      <div className="brand-container">
+        <FormControl className="dropdown">
+          <InputLabel id="select-brand">Brand</InputLabel>
+          <Select
+            labelId="select-brand-label"
+            id="brand"
+            label="Brand"
+            value={selectedBrand}
+            onChange={handleBrandChange}
+          >
+            {uniqueBrands.map((brand) => {
+              return (
+                <MenuItem value={brand} key={brand}>
+                  {brand}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+      </div>
+
+      <div className="model-container">
+        <FormControl sx={{ mt: 3 }} className="dropdown">
+          <InputLabel id="select-model">Model</InputLabel>
+          <Select
+            labelId="select-model-label"
+            id="model"
+            value={selectedModel}
+            label="Model"
+            onChange={handleModelChange}
+          >
+            {availableModels.map((model) => (
+              <MenuItem value={model} key={model}>
+                {model}
               </MenuItem>
-            );
-          })}
-        </Select>
-      </FormControl>
-      <FormControl sx={{ mt: 3 }}>
-        <InputLabel id="select-model">Model</InputLabel>
-        <Select
-          labelId="select-model-label"
-          id="model"
-          value={selectedModel}
-          label="Model"
-          onChange={handleModelChange}
-        >
-          {availableModels.map((model) => (
-            <MenuItem value={model} key={model}>
-              {model}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <TextField
-        sx={{ mt: 3 }}
-        id="model-year"
-        label="Model year"
-        value={enteredYear}
-        onChange={(event) => {
-          setEnteredYear(event.target.value);
-        }}
-        error={enteredYear > lastSupportedYear}
-        helperText={
-          enteredYear > lastSupportedYear
-            ? `The last supported year for selected model is ${lastSupportedYear}`
-            : " "
-        }
-      ></TextField>
-      <TextField
-        id="mileage"
-        label="Mileage"
-        value={enteredMileage}
-        onChange={(event) => setEnteredMileage(event.target.value)}
-        error={enteredMileage < 0}
-        helperText={enteredMileage < 0 ? `Invalid input` : " "}
-      ></TextField>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+      <div className="model-year-container">
+        <TextField
+          className="dropdown"
+          sx={{ mt: 3 }}
+          id="model-year"
+          label="Model year"
+          value={enteredYear}
+          onChange={(event) => {
+            setEnteredYear(event.target.value);
+          }}
+          error={enteredYear > lastSupportedYear}
+          helperText={
+            enteredYear > lastSupportedYear
+              ? `The last supported year for selected model is ${lastSupportedYear}`
+              : " "
+          }
+        ></TextField>
+      </div>
+      <div className="mileage-container">
+        <TextField
+          className="dropdown"
+          id="mileage"
+          label="Mileage"
+          value={enteredMileage}
+          onChange={(event) => setEnteredMileage(event.target.value)}
+          error={enteredMileage < 0}
+          helperText={enteredMileage < 0 ? `Invalid input` : " "}
+        ></TextField>
+      </div>
     </div>
   );
 };

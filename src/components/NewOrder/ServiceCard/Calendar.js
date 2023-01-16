@@ -6,6 +6,7 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useRecoilState } from "recoil";
 import { dateSelectedState, dateTimePickerState } from "../../../atoms";
 import dayjs from "dayjs";
+import "./Calendar.css";
 
 const Calendar = () => {
   const [dateAndTime, setDateAndTime] = useRecoilState(dateTimePickerState);
@@ -21,18 +22,21 @@ const Calendar = () => {
   const fivePM = dayjs().set("hour", 17);
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DateTimePicker
-        label="Choose an appointment"
-        value={dateAndTime}
-        minDate={tomorrow}
-        minTime={eightAM}
-        maxTime={fivePM}
-        minutesStep={30}
-        onChange={handleDateChange}
-        renderInput={(params) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
+    <div className="calendar-container">
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DateTimePicker
+          className="calendar"
+          label="Choose an appointment"
+          value={dateAndTime}
+          minDate={tomorrow}
+          minTime={eightAM}
+          maxTime={fivePM}
+          minutesStep={30}
+          onChange={handleDateChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+    </div>
   );
 };
 
