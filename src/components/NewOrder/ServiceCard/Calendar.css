@@ -5,3 +5,6 @@
 .calendar {
   width: 80%;
 }
+.calendar-container > .calendar > label {
+  font-family: "poppins";
+}

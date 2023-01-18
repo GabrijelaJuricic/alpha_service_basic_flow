@@ -1,6 +1,7 @@
 .discount-options {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
   font-size: 10px;
   color: #737373;
 }

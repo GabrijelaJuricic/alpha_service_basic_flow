@@ -26,7 +26,7 @@ const Calendar = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
           className="calendar"
-          label="Choose an appointment"
+          label="Choose date"
           value={dateAndTime}
           minDate={tomorrow}
           minTime={eightAM}

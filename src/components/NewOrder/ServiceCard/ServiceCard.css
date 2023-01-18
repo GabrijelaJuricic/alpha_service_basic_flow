@@ -1,14 +1,14 @@
 .service-card-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-top: 40px;
-  width: 420px;
+  width: 500px;
+  min-height: 100%;
+  margin-top: 156px;
 }
 .type-of-service {
   display: flex;
   flex-direction: column;
-  margin-top: 35px;
+  margin-top: 53px;
   width: 100%;
 }
 .type-of-service > label {
@@ -16,7 +16,7 @@
   width: 80%;
   margin-bottom: 10px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 15px;
   letter-spacing: -0.02em;
   color: #737373;
