@@ -26,7 +26,7 @@ const OrderSummaryCard = () => {
   const navigate = useNavigate();
 
   // Date and time deconstruction
-  const date = `${dateAndTime.format("MMMM D, YYYY hh:mm")}`;
+  const date = `${dateAndTime.format("MMMM D, YYYY HH:mm")}`;
 
   const allStates = {
     orderId: Math.random().toString().slice(2, 11),
@@ -49,17 +49,23 @@ const OrderSummaryCard = () => {
           {selectedServices.map(({ name, price }) => {
             return (
               <li key={Math.random()}>
-                {name} {`${price} $`}
+                <div className="summary-service-name">{name}</div>{" "}
+                <div className="summary-service-price">{`${price} $`}</div>
               </li>
             );
           })}
         </ul>
       </div>
-      <hr />
       <div className="total-amount-container">
-        <div>{`Full Price: ${fullPrice} $`}</div>
-        <div>{`Discount: ${discount} $`}</div>
-        <div>{`Price: ${fullPrice - discount} $`}</div>
+        <div>
+          Full Price: <div>{fullPrice} $</div>
+        </div>
+        <div>
+          Discount: <div>{discount} $</div>
+        </div>
+        <div>
+          Price: <div>{fullPrice - discount} $</div>
+        </div>
       </div>
       <div className="controls">
         <button type="submit" onClick={createOrderHandler}>
