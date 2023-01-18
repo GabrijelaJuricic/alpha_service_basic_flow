@@ -54,8 +54,7 @@ const MyOrders = () => {
         </div> */}
         <div className="has-orders">
           <div className="has-orders-message">
-            <h3>Thank you</h3>
-            <h3>for your order:</h3>
+            <h3>Thank you for your order:</h3>
             <h5>#order number!</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
