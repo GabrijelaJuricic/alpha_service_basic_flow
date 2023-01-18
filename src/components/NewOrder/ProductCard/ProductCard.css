@@ -1,10 +1,13 @@
 .product-card-container {
   display: flex;
   flex-direction: column;
-  width: 420px;
+  width: 500px;
 }
 .product-card-container > .alpha-logo {
   margin-bottom: 0;
+}
+.product-card-container > h2 {
+  margin-bottom: 50px;
 }
 .brand-container,
 .model-container,
@@ -12,7 +15,14 @@
 .mileage-container {
   display: flex;
   width: 100%;
+  margin-bottom: 15px;
 }
 .dropdown {
   width: 80%;
+}
+.dropdown > label {
+  font-family: "poppins";
+}
+.dropdown > p {
+  margin-left: 0;
 }

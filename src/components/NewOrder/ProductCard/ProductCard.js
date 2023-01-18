@@ -126,6 +126,7 @@ const ProductCard = () => {
         <FormControl className="dropdown">
           <InputLabel id="select-brand">Brand</InputLabel>
           <Select
+            sx={{ fontFamily: "poppins" }}
             labelId="select-brand-label"
             id="brand"
             label="Brand"
@@ -134,7 +135,11 @@ const ProductCard = () => {
           >
             {uniqueBrands.map((brand) => {
               return (
-                <MenuItem value={brand} key={brand}>
+                <MenuItem
+                  value={brand}
+                  key={brand}
+                  sx={{ fontFamily: "poppins" }}
+                >
                   {brand}
                 </MenuItem>
               );
@@ -147,6 +152,7 @@ const ProductCard = () => {
         <FormControl sx={{ mt: 3 }} className="dropdown">
           <InputLabel id="select-model">Model</InputLabel>
           <Select
+            sx={{ fontFamily: "poppins" }}
             labelId="select-model-label"
             id="model"
             value={selectedModel}
@@ -154,7 +160,11 @@ const ProductCard = () => {
             onChange={handleModelChange}
           >
             {availableModels.map((model) => (
-              <MenuItem value={model} key={model}>
+              <MenuItem
+                value={model}
+                key={model}
+                sx={{ fontFamily: "poppins" }}
+              >
                 {model}
               </MenuItem>
             ))}
