@@ -13,8 +13,8 @@ const Calendar = () => {
   const [, setIsSelected] = useRecoilState(dateSelectedState);
 
   const handleDateChange = (newValue) => {
-    setDateAndTime(newValue);
     setIsSelected(true);
+    setDateAndTime(newValue.format("MMMM D, YYYY HH:mm"));
   };
 
   const tomorrow = dayjs().add(1, "day");
@@ -26,12 +26,13 @@ const Calendar = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
           className="calendar"
-          label="Choose date"
+          label="Choose date and time"
           value={dateAndTime}
+          inputFormat="MMMM D, YYYY HH:mm"
           minDate={tomorrow}
           minTime={eightAM}
           maxTime={fivePM}
-          minutesStep={30}
+          minutesStep={60}
           onChange={handleDateChange}
           renderInput={(params) => <TextField {...params} />}
         />

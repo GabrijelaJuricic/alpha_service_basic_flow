@@ -26,11 +26,11 @@ const OrderSummaryCard = () => {
   const navigate = useNavigate();
 
   // Date and time deconstruction
-  const date = `${dateAndTime.format("MMMM D, YYYY HH:mm")}`;
+  const date = `${dateAndTime}`;
 
   const allStates = {
     orderId: Math.random().toString().slice(2, 11),
-    serviceDay: dateAndTime.format("DD/MM/YYYY"),
+    serviceDay: dateAndTime,
     brand: brand,
     model: model,
     mileage: mileage,

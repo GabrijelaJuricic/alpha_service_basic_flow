@@ -51,7 +51,7 @@ export const dateSelectedState = atom({
 });
 export const dateTimePickerState = atom({
   key: "dateTimePickerState",
-  default: dayjs().add(1, "day"),
+  default: null,
 });
 export const collectValuesState = atom({
   key: "collectedValuesState",
