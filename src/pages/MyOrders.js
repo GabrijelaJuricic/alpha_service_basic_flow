@@ -34,15 +34,15 @@ const MyOrders = () => {
           <h3>My Orders</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        {/* <div className="my-orders-list">
+        <div className="my-orders-list">
           <p>You have no orders.</p>
           <Link to="/new-order">Create New Order</Link>
-        </div> */}
+        </div>
 
-        <Table />
+        {/* <Table /> */}
       </div>
       <div className="my-orders-right">
-        {/* <div className="no-orders">
+        <div className="no-orders">
           <img alt="alpha" className="my-orders-alpha" src={alpha} />
           <div className="no-orders-image">
             <img
@@ -51,8 +51,8 @@ const MyOrders = () => {
               src={motorcycle_2}
             />
           </div>
-        </div> */}
-        <div className="has-orders">
+        </div>
+        {/* <div className="has-orders">
           <div className="has-orders-message">
             <h3>Thank you for your order:</h3>
             <h5>#order number!</h5>
@@ -65,7 +65,7 @@ const MyOrders = () => {
               src={motorcycle_3}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
