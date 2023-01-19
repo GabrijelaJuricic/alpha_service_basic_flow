@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import { emailFormSchema } from "../schemas/emailFormSchema";
 import motorcycle_1 from "../assets/motorcycle_1.png";
 import alphaService from "../assets/alphaService.png";
 import alphaLogo from "../assets/alphaLogo.png";
@@ -8,9 +10,17 @@ import "./Login.css";
 const Login = () => {
   const navigate = useNavigate();
 
-  const continueToMyOrdersHandler = () => {
-    navigate("/my-orders");
-  };
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+      },
+      validationSchema: emailFormSchema,
+      onSubmit: (values) => {
+        localStorage.setItem("dataKey", JSON.stringify(values));
+        navigate("/my-orders");
+      },
+    });
 
   return (
     <div className="login-container">
@@ -24,17 +34,26 @@ const Login = () => {
             <h3>Welcome to</h3>
             <h1>alpha service</h1>
           </div>
-          <div className="label-container">
-            <label>Email address</label>
-          </div>
-          <div className="input-container">
-            <input type="email" name="email" />
-          </div>
-          <div className="button-container">
-            <button type="button" onClick={continueToMyOrdersHandler}>
-              Continue
-            </button>
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="label-container">
+              <label htmlFor="email">Email address</label>
+            </div>
+            <div className="input-container">
+              <input
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+              />
+              {errors.email && touched.email && (
+                <p className="error">{errors.email}</p>
+              )}
+            </div>
+            <div className="button-container">
+              <button type="submit">Continue</button>
+            </div>
+          </form>
         </div>
       </div>
       <div className="login-right">
