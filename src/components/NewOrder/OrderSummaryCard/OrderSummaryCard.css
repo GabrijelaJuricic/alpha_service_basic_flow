@@ -4,7 +4,7 @@
   box-sizing: border-box;
   padding: 30px;
   width: 400px;
-  height: 550px;
+  height: 555px;
   border: 1px solid #d0d0d0;
   border-radius: 12px;
 }
@@ -19,14 +19,14 @@
   letter-spacing: -0.02em;
   color: #737373;
 }
-.selected-services {
+.selected-services-container {
   display: flex;
   margin-top: 40px;
   width: 100%;
   height: 30%;
   border-bottom: 1px solid #c2c2c2;
 }
-.selected-services > ul {
+.selected-services-container > ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +34,7 @@
   margin: 0;
   padding: 0;
 }
-.selected-services > ul > li {
+.selected-services-container > ul > li {
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -51,12 +51,12 @@
   width: 140px;
   justify-content: space-between;
 }
-.controls {
+.submit-button-container {
   display: flex;
   justify-content: flex-end;
   width: 100%;
 }
-.controls > button {
+.submit-button-container > button {
   height: 40px;
   width: 220px;
   padding: 0;

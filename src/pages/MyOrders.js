@@ -1,17 +1,14 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import alphaLogo from "../assets/alphaLogo.png";
 import Table from "../components/MyOrders/Table";
-import motorcycle_2 from "../assets/motorcycle_2.png";
+import alphaLogo from "../assets/alphaLogo.png";
+import motorcycle_no_orders from "../assets/motorcycle_no_orders.png";
 import alpha from "../assets/alpha.png";
-import motorcycle_3 from "../assets/motorcycle_3.png";
+import motorcycle_table from "../assets/motorcycle_table.png";
 import "./MyOrders.css";
-import { useRecoilValue } from "recoil";
-import { collectValuesState } from "../atoms";
 
 const MyOrders = () => {
   // const hasOrders = useRecoilValue(collectValuesState);
-
   const navigate = useNavigate();
 
   const createNewOrderHandler = () => {
@@ -20,13 +17,13 @@ const MyOrders = () => {
 
   return (
     <div className="my-orders-container">
-      <div className="my-orders-left">
+      <div className="my-orders-left-side">
         <div className="alpha-header">
           <div className="alpha-logo">
             <img src={alphaLogo} />
             <h1>alpha</h1>
           </div>
-          <div className="create-new-order-btn">
+          <div className="create-order-button-container">
             <button onClick={createNewOrderHandler}>Create New Order</button>
           </div>
         </div>
@@ -34,21 +31,21 @@ const MyOrders = () => {
           <h3>My Orders</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div className="my-orders-list">
+        <div className="no-orders-left">
           <p>You have no orders.</p>
           <Link to="/new-order">Create New Order</Link>
         </div>
 
         {/* <Table /> */}
       </div>
-      <div className="my-orders-right">
-        <div className="no-orders">
-          <img alt="alpha" className="my-orders-alpha" src={alpha} />
-          <div className="no-orders-image">
+      <div className="my-orders-right-side">
+        <div className="no-orders-right">
+          <img alt="alpha" className="alpha-banner" src={alpha} />
+          <div className="no-orders-image-container">
             <img
-              alt="motorcycle_2"
-              className="motorcycle_2"
-              src={motorcycle_2}
+              alt="motorcycle_no_orders"
+              className="motorcycle_no_orders"
+              src={motorcycle_no_orders}
             />
           </div>
         </div>
@@ -60,9 +57,9 @@ const MyOrders = () => {
           </div>
           <div className="has-orders-image">
             <img
-              alt="motorcycle_3"
-              className="motorcycle_3"
-              src={motorcycle_3}
+              alt="motorcycle_table_view"
+              className="motorcycle_table"
+              src={motorcycle_table}
             />
           </div>
         </div> */}

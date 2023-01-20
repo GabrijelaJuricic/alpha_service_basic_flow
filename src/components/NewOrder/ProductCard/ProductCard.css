@@ -17,13 +17,13 @@
   width: 100%;
   margin-bottom: 15px;
 }
-.dropdown {
+.form-fields {
   width: 80%;
 }
-.dropdown > label {
+.form-fields > label {
   font-family: "poppins";
 }
-.dropdown > p {
+.form-fields > p {
   font-family: "poppins";
   margin-left: 0;
 }

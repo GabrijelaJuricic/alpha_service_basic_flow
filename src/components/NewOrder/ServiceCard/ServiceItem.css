@@ -4,10 +4,15 @@
   justify-content: space-between;
   width: 80%;
 }
-.service-price {
+.service-price-container > label {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: #737373;
 }
 .checkbox-round {
   width: 10px;
@@ -23,16 +28,6 @@
 }
 .checkbox-round:checked {
   background-color: black;
-}
-.service-price-container > label {
-  display: flex;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-  display: flex;
-  align-items: center;
-  letter-spacing: -0.02em;
-  color: #737373;
 }
 .service-price-label {
   font-weight: 400;

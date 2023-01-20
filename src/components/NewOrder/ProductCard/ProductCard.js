@@ -1,7 +1,4 @@
 import React, { useEffect } from "react";
-import service_pricing_list from "../../../constants/service_pricing_list.csv";
-import Papa from "papaparse";
-import alphaLogo from "../../../assets/alphaLogo.png";
 import { useRecoilState } from "recoil";
 import {
   csvContentState,
@@ -16,6 +13,9 @@ import {
 } from "../../../atoms";
 import { TextField, MenuItem, Select } from "@mui/material";
 import { FormControl, InputLabel } from "@mui/material";
+import service_pricing_list from "../../../constants/service_pricing_list.csv";
+import Papa from "papaparse";
+import alphaLogo from "../../../assets/alphaLogo.png";
 import "./ProductCard.css";
 
 const ProductCard = () => {
@@ -31,7 +31,7 @@ const ProductCard = () => {
   const [enteredYear, setEnteredYear] = useRecoilState(enteredYearState);
   const [enteredMileage, setEnteredMileage] =
     useRecoilState(enteredMileageState);
-  const [serviceAndPrice, setServiceAndPrice] = useRecoilState(
+  const [, setServiceAndPrice] = useRecoilState(
     serviceAndPriceForSelectedModelState
   );
 
@@ -101,7 +101,7 @@ const ProductCard = () => {
     }
   }, [selectedModel]);
 
-  // --- Helper function --- //
+  // Helper functions //
   const handleBrandChange = (event) => {
     setSelectedBrand(event.target.value);
   };
@@ -123,7 +123,7 @@ const ProductCard = () => {
       </div>
       <h2>New Order</h2>
       <div className="brand-container">
-        <FormControl className="dropdown">
+        <FormControl className="form-fields">
           <InputLabel id="select-brand">Brand</InputLabel>
           <Select
             sx={{ fontFamily: "poppins" }}
@@ -149,7 +149,7 @@ const ProductCard = () => {
       </div>
 
       <div className="model-container">
-        <FormControl sx={{ mt: 3 }} className="dropdown">
+        <FormControl sx={{ mt: 3 }} className="form-fields">
           <InputLabel id="select-model">Model</InputLabel>
           <Select
             sx={{ fontFamily: "poppins" }}
@@ -173,7 +173,7 @@ const ProductCard = () => {
       </div>
       <div className="model-year-container">
         <TextField
-          className="dropdown"
+          className="form-fields"
           sx={{ mt: 3 }}
           id="model-year"
           label="Model year"
@@ -191,7 +191,7 @@ const ProductCard = () => {
       </div>
       <div className="mileage-container">
         <TextField
-          className="dropdown"
+          className="form-fields"
           id="mileage"
           label="Mileage"
           value={enteredMileage}

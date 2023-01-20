@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue, useRecoilState } from "recoil";
 import {
@@ -16,6 +16,7 @@ import "./OrderSummaryCard.css";
 const OrderSummaryCard = () => {
   const [collectedValues, setCollectedValues] =
     useRecoilState(collectValuesState);
+  const email = JSON.parse(localStorage.getItem("email"));
   const brand = useRecoilValue(selectedBrandState);
   const model = useRecoilValue(selectedModelState);
   const mileage = useRecoilValue(enteredMileageState);
@@ -23,28 +24,29 @@ const OrderSummaryCard = () => {
   const isSelected = useRecoilValue(dateSelectedState);
   const dateAndTime = useRecoilValue(dateTimePickerState);
   const [fullPrice, discount] = useCalculatePrices();
+
   const navigate = useNavigate();
 
-  // Date and time deconstruction
-  const date = `${dateAndTime}`;
-
   const allStates = {
+    email: email,
     orderId: Math.random().toString().slice(2, 11),
     serviceDay: dateAndTime,
     brand: brand,
     model: model,
     mileage: mileage,
   };
+
   const createOrderHandler = () => {
-    setCollectedValues((prevState) => [...prevState, allStates]);
+    // setCollectedValues((prevState) => [...prevState, allStates]);
+    localStorage.setItem("data", JSON.stringify(allStates));
     navigate("/my-orders");
   };
 
   return (
     <div className="summary-card-container">
       <h4>Order summary</h4>
-      {isSelected && <div>{date}</div>}
-      <div className="selected-services">
+      {isSelected && <div>{dateAndTime}</div>}
+      <div className="selected-services-container">
         <ul>
           {selectedServices.map(({ name, price }) => {
             return (
@@ -67,7 +69,7 @@ const OrderSummaryCard = () => {
           Price: <div>{fullPrice - discount} $</div>
         </div>
       </div>
-      <div className="controls">
+      <div className="submit-button-container">
         <button type="submit" onClick={createOrderHandler}>
           Create Order
         </button>

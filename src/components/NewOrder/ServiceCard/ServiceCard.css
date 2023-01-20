@@ -5,13 +5,13 @@
   min-height: 100%;
   margin-top: 156px;
 }
-.type-of-service {
+.type-of-service-container {
   display: flex;
   flex-direction: column;
   margin-top: 53px;
   width: 100%;
 }
-.type-of-service > label {
+.type-of-service-container > label {
   display: flex;
   width: 80%;
   margin-bottom: 10px;
