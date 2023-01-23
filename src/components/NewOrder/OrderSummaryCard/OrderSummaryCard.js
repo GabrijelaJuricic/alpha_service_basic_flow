@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import {
-  collectValuesState,
   dateSelectedState,
   dateTimePickerState,
   enteredMileageState,
@@ -14,8 +13,6 @@ import useCalculatePrices from "../../../hooks/useCalculatePrices";
 import "./OrderSummaryCard.css";
 
 const OrderSummaryCard = () => {
-  const [collectedValues, setCollectedValues] =
-    useRecoilState(collectValuesState);
   const email = JSON.parse(localStorage.getItem("email"));
   const brand = useRecoilValue(selectedBrandState);
   const model = useRecoilValue(selectedModelState);
@@ -37,8 +34,15 @@ const OrderSummaryCard = () => {
   };
 
   const createOrderHandler = () => {
-    // setCollectedValues((prevState) => [...prevState, allStates]);
-    localStorage.setItem("data", JSON.stringify(allStates));
+    if (localStorage.getItem("data") === null) {
+      let tempArray = [];
+      tempArray.push(allStates);
+      localStorage.setItem("data", JSON.stringify(tempArray));
+    } else {
+      let tempData = JSON.parse(localStorage.getItem("data"));
+      tempData.push(allStates);
+      localStorage.setItem("data", JSON.stringify(tempData));
+    }
     navigate("/my-orders");
   };
 
