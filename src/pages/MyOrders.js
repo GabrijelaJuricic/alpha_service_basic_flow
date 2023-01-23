@@ -29,6 +29,10 @@ const MyOrders = () => {
   const createNewOrderHandler = () => {
     navigate("/new-order");
   };
+  const logoutHandler = () => {
+    navigate("/");
+    localStorage.removeItem("email");
+  };
 
   return (
     <div className="my-orders-container">
@@ -40,6 +44,9 @@ const MyOrders = () => {
           </div>
           <div className="create-order-button-container">
             <button onClick={createNewOrderHandler}>Create New Order</button>
+          </div>
+          <div className="logout-container">
+            <button onClick={logoutHandler}>Logout</button>
           </div>
         </div>
         <div className="my-orders-title">

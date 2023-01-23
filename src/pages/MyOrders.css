@@ -2,10 +2,11 @@
   display: flex;
   justify-content: center;
   min-height: 100%;
+
+  min-width: 1460px;
   box-sizing: border-box;
   padding: 78px 0px;
 }
-
 /* Left side of the "MyOrders" page */
 .my-orders-left-side {
   display: flex;
@@ -25,9 +26,30 @@
   margin: 0;
 }
 .create-order-button-container {
-  width: 220px;
+  display: flex;
+  width: 100%;
+  margin-right: 20px;
+  justify-content: flex-end;
 }
 .create-order-button-container > button {
+  height: 40px;
+  width: 30%;
+  padding: 0;
+  border: none;
+  font-family: "poppins";
+  background: #836048;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  cursor: pointer;
+}
+.logout-container {
+  width: 100px;
+}
+.logout-container > button {
   height: 40px;
   width: 100%;
   padding: 0;
