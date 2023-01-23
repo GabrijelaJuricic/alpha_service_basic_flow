@@ -53,7 +53,3 @@ export const dateTimePickerState = atom({
   key: "dateTimePickerState",
   default: null,
 });
-export const collectValuesState = atom({
-  key: "collectedValuesState",
-  default: [],
-});

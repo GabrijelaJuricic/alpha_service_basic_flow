@@ -8,8 +8,23 @@ import motorcycle_table from "../assets/motorcycle_table.png";
 import "./MyOrders.css";
 
 const MyOrders = () => {
-  // const hasOrders = useRecoilValue(collectValuesState);
   const navigate = useNavigate();
+
+  // Helper function
+  const displayContent = () => {
+    if (JSON.parse(localStorage.getItem("data") === null)) {
+      return null;
+    }
+    let tempFilteredOrders = JSON.parse(localStorage.getItem("data")).filter(
+      (order) => {
+        return JSON.parse(localStorage.getItem("email")) === order.email;
+      }
+    );
+    if (tempFilteredOrders.length === 0) {
+      return null;
+    } else return tempFilteredOrders;
+  };
+  const filteredOrders = displayContent();
 
   const createNewOrderHandler = () => {
     navigate("/new-order");
@@ -31,38 +46,43 @@ const MyOrders = () => {
           <h3>My Orders</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div className="no-orders-left">
-          <p>You have no orders.</p>
-          <Link to="/new-order">Create New Order</Link>
-        </div>
-
-        {/* <Table /> */}
+        {!filteredOrders && (
+          <div className="no-orders-left">
+            <p>You have no orders.</p>
+            <Link to="/new-order">Create New Order</Link>
+          </div>
+        )}
+        {filteredOrders && <Table filteredOrders={filteredOrders} />}
       </div>
       <div className="my-orders-right-side">
-        <div className="no-orders-right">
-          <img alt="alpha" className="alpha-banner" src={alpha} />
-          <div className="no-orders-image-container">
-            <img
-              alt="motorcycle_no_orders"
-              className="motorcycle_no_orders"
-              src={motorcycle_no_orders}
-            />
+        {!filteredOrders && (
+          <div className="no-orders-right">
+            <img alt="alpha" className="alpha-banner" src={alpha} />
+            <div className="no-orders-image-container">
+              <img
+                alt="motorcycle_no_orders"
+                className="motorcycle_no_orders"
+                src={motorcycle_no_orders}
+              />
+            </div>
           </div>
-        </div>
-        {/* <div className="has-orders">
-          <div className="has-orders-message">
-            <h3>Thank you for your order:</h3>
-            <h5>#order number!</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        )}
+        {filteredOrders && (
+          <div className="has-orders">
+            <div className="has-orders-message">
+              <h3>Thank you for your order:</h3>
+              <h5>#order number!</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div className="has-orders-image">
+              <img
+                alt="motorcycle_table_view"
+                className="motorcycle_table"
+                src={motorcycle_table}
+              />
+            </div>
           </div>
-          <div className="has-orders-image">
-            <img
-              alt="motorcycle_table_view"
-              className="motorcycle_table"
-              src={motorcycle_table}
-            />
-          </div>
-        </div> */}
+        )}
       </div>
     </div>
   );
