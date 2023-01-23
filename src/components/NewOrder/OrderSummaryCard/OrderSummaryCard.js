@@ -45,7 +45,7 @@ const OrderSummaryCard = () => {
   return (
     <div className="summary-card-container">
       <h4>Order summary</h4>
-      {isSelected && <div>{dateAndTime}</div>}
+      {isSelected && <div className="date-time-summary">{dateAndTime}</div>}
       <div className="selected-services-container">
         <ul>
           {selectedServices.map(({ name, price }) => {

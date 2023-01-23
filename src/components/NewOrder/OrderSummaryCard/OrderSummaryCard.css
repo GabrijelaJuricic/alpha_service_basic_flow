@@ -19,6 +19,14 @@
   letter-spacing: -0.02em;
   color: #737373;
 }
+.date-time-summary {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #737373;
+}
 .selected-services-container {
   display: flex;
   margin-top: 40px;
@@ -38,6 +46,12 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #737373;
 }
 .total-amount-container {
   height: 45%;
@@ -48,8 +62,14 @@
 }
 .total-amount-container > div {
   display: flex;
-  width: 140px;
+  align-items: center;
   justify-content: space-between;
+  width: 140px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #737373;
 }
 .submit-button-container {
   display: flex;
