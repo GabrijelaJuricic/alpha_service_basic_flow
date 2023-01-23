@@ -1,10 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   dateSelectedState,
   dateTimePickerState,
   enteredMileageState,
+  enteredYearState,
   selectedBrandState,
   selectedModelState,
   selectedServicesState,
@@ -14,23 +15,26 @@ import "./OrderSummaryCard.css";
 
 const OrderSummaryCard = () => {
   const email = JSON.parse(localStorage.getItem("email"));
-  const brand = useRecoilValue(selectedBrandState);
-  const model = useRecoilValue(selectedModelState);
-  const mileage = useRecoilValue(enteredMileageState);
-  const selectedServices = useRecoilValue(selectedServicesState);
-  const isSelected = useRecoilValue(dateSelectedState);
-  const dateAndTime = useRecoilValue(dateTimePickerState);
+  const [brand, setBrand] = useRecoilState(selectedBrandState);
+  const [model, setModel] = useRecoilState(selectedModelState);
+  const [mileage, setMilage] = useRecoilState(enteredMileageState);
+  const [, setModelYear] = useRecoilState(enteredYearState);
+  const [selectedServices, setSelectedServices] = useRecoilState(
+    selectedServicesState
+  );
+  const [isSelected, setIsSelected] = useRecoilState(dateSelectedState);
+  const [dateAndTime, setDateAndTime] = useRecoilState(dateTimePickerState);
   const [fullPrice, discount] = useCalculatePrices();
 
   const navigate = useNavigate();
 
   const allStates = {
     email: email,
-    orderId: Math.random().toString().slice(2, 11),
-    serviceDay: dateAndTime,
     brand: brand,
     model: model,
     mileage: mileage,
+    serviceDay: dateAndTime,
+    orderId: Math.random().toString().slice(2, 11),
   };
 
   const createOrderHandler = () => {
@@ -44,6 +48,13 @@ const OrderSummaryCard = () => {
       localStorage.setItem("data", JSON.stringify(tempData));
     }
     navigate("/my-orders");
+    setBrand("");
+    setModel("");
+    setMilage("");
+    setModelYear("");
+    setSelectedServices([]);
+    setIsSelected(false);
+    setDateAndTime(null);
   };
 
   return (
