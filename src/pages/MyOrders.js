@@ -61,9 +61,6 @@ const MyOrders = () => {
           <div className="create-order-button-container">
             <button onClick={createNewOrderHandler}>Create New Order</button>
           </div>
-          <div className="logout-container">
-            <button onClick={logoutHandler}>Logout</button>
-          </div>
         </div>
         <div className="my-orders-title">
           <h3>My Orders</h3>
@@ -76,6 +73,11 @@ const MyOrders = () => {
           </div>
         )}
         {filteredOrders && <Table filteredOrders={filteredOrders} />}
+        {filteredOrders && (
+          <div className="logout-container">
+            <button onClick={logoutHandler}>Logout</button>
+          </div>
+        )}
       </div>
       <div className="my-orders-right-side">
         {!filteredOrders && (

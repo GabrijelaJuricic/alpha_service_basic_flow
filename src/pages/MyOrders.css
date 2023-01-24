@@ -33,7 +33,7 @@
 }
 .create-order-button-container > button {
   height: 40px;
-  width: 30%;
+  width: 140px;
   padding: 0;
   border: none;
   font-family: "poppins";
@@ -47,11 +47,15 @@
   cursor: pointer;
 }
 .logout-container {
-  width: 100px;
+  display: flex;
+  width: 100%;
+  padding-right: 75px;
+  box-sizing: border-box;
+  justify-content: flex-end;
 }
 .logout-container > button {
   height: 40px;
-  width: 100%;
+  width: 75px;
   padding: 0;
   border: none;
   font-family: "poppins";
@@ -192,6 +196,12 @@
   }
   .alpha-header {
     padding: 0;
+  }
+  .create-order-button-container {
+    margin-right: 0;
+  }
+  .logout-container {
+    padding-right: 0;
   }
   .my-orders-right-side {
     display: none;
