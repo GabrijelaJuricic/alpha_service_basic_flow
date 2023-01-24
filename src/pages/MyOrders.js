@@ -10,7 +10,7 @@ import "./MyOrders.css";
 const MyOrders = () => {
   const navigate = useNavigate();
 
-  // Helper function
+  // Helper functions
   const displayContent = () => {
     if (JSON.parse(localStorage.getItem("data") === null)) {
       return null;
@@ -26,6 +26,22 @@ const MyOrders = () => {
   };
   const filteredOrders = displayContent();
 
+  const orderNumber = () => {
+    const allOrders = JSON.parse(localStorage.getItem("data"));
+    if (allOrders === null) {
+      return null;
+    }
+    const myOrders = allOrders.filter((order) => {
+      return JSON.parse(localStorage.getItem("email")) === order.email;
+    });
+    if (myOrders.length === 0) {
+      return null;
+    }
+    const myLastOrderId = myOrders.slice(-1)[0].orderId;
+    return myLastOrderId;
+  };
+
+  // Event handlers
   const createNewOrderHandler = () => {
     navigate("/new-order");
   };
@@ -78,7 +94,7 @@ const MyOrders = () => {
           <div className="has-orders">
             <div className="has-orders-message">
               <h3>Thank you for your order:</h3>
-              <h5>#order number!</h5>
+              <h5>{orderNumber()}</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div className="has-orders-image">
