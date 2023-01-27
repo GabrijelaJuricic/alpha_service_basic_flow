@@ -15,7 +15,7 @@ This project was part of a job application. It is a service for ordering and sch
 
 > User should be able to log in with his email. If he has already made some orders, a table with his order details will be displayed on "My Orders" page. If there are no previous orders, the user is presented with a component that contains a button to create a new order. On the "New order" page, user can select a brand and a model of the motorcycle, enter it's model year and milage, select repair service's date and time etc. By clicking on the "Create order" button, user gets redirected to the "My orders" page where the table with his order details will be displayed. If the user logs out, his data won't be lost because his orders are stored in local storage, so when the user logs in again, his previously created orders will be there.
 
-![alpha_service_basic_flow](https://user-images.githubusercontent.com/99487819/214586126-32fe7195-26eb-4fda-9a86-474143961b85.gif)
+![alpha_service_basic_flow](/src/assets/alpha_service_basic_flow_.gif)
 
 ## Project background
 
