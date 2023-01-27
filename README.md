@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Alpha Service (basic flow)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project description
 
-## Available Scripts
+This project was part of a job application. It is a service for ordering and scheduling motorcycle repair services. In this project I used:
 
-In the project directory, you can run:
+- **recoil** - state management library for React
+- **react-router** - routing library for the React
+- **Formik** - open source form library for React
+- **yup** - schema builder for runtime value parsing and validation
+- **Day.js** - JavaScript library for parsing, validating, manipulating and displaying dates and times
+- **MUI** - component library for customization of components and features
+
+## Project result
+
+> User should be able to log in with his email. If he has already made some orders, a table with his order details will be displayed on "My Orders" page. If there are no previous orders, the user is presented with a component that contains a button to create a new order. On the "New order" page, user can select a brand and a model of the motorcycle, enter it's model year and milage, select repair service's date and time etc. By clicking on the "Create order" button, user gets redirected to the "My orders" page where the table with his order details will be displayed. If the user logs out, his data won't be lost because his orders are stored in local storage, so when the user logs in again, his previously created orders will be there.
+
+![alpha_service_basic_flow](https://user-images.githubusercontent.com/99487819/214586126-32fe7195-26eb-4fda-9a86-474143961b85.gif)
+
+## Project background
+
+This is one of the first projects that I made from scratch. I made the first version couple of months prior to thi one, but I wasn't pleased with the result so I recently decided to do it again properly. I learned a lot of new stuff in this process (well, I imagine I ought to, as from time to time I had a feeling my brain is going to explode! But it didn't, so, hopefully, it made me smarter 😊). Many things were new to me, like file structuring, arhitecture of a project, the whole logic for fetching and displaying data from CSV files, creating and using custom hook in React, responsiveness and some smaller things like writing a (hopefully) useful README file etc. I really dedicated my time and mind into finishing this project the best I could. If I wrote it again, I know it would be even better, but I guess that's how the learning process goes, and, honestly, I'm looking forward for more.
+
+## Install and Run the Project
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in the development mode.  
+Open [http://localhost:3000](http://localhost:3000/) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The page will reload when you make changes.
